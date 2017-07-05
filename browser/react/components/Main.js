@@ -4,25 +4,17 @@ import AllAlbums from './AllAlbums';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
+import { HashRouter, Route } from 'react-router-dom'
 
 export default class Main extends Component {
 
   constructor (props) {
     super(props);
     this.state = {
-      albums: [],
       selectedAlbum: {}
     };
     this.selectAlbum = this.selectAlbum.bind(this);
     this.deselectAlbum = this.deselectAlbum.bind(this);
-  }
-
-  componentDidMount () {
-    axios.get('/api/albums/')
-      .then(res => res.data)
-      .then(albums => {
-        this.setState({ albums })
-      });
   }
 
   selectAlbum (albumId) {
@@ -39,19 +31,19 @@ export default class Main extends Component {
 
   render () {
     return (
-      <div id="main" className="container-fluid">
-        <div className="col-xs-2">
-          <Sidebar deselectAlbum={this.deselectAlbum} />
+        <div id="main" className="container-fluid">
+          <div className="col-xs-2">
+            <Sidebar deselectAlbum={this.deselectAlbum} />
+          </div>
+          <HashRouter>
+            <div className="col-xs-10">
+              <Route exact path="/" component={AllAlbums} />
+              <Route path="/albums" component={AllAlbums} />
+              <Route path="/single-album" component={SingleAlbum} />
+            </div>
+          </HashRouter>
+          <Player />
         </div>
-        <div className="col-xs-10">
-        {
-          this.state.selectedAlbum.id ?
-          <SingleAlbum album={this.state.selectedAlbum} /> :
-          <AllAlbums albums={this.state.albums} selectAlbum={this.selectAlbum} />
-        }
-        </div>
-        <Player />
-      </div>
     );
   }
 }
