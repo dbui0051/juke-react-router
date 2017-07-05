@@ -42,7 +42,7 @@ export default class AllAlbums extends Component {
         }
         </div>
       </div>
-    );
+    )
   }
 }
 
