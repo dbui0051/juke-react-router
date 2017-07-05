@@ -15,7 +15,8 @@ export default class AllAlbums extends Component {
       .then(res => res.data)
       .then(albums => {
         this.setState({ albums })
-      });
+      })
+      .catch(error => console.log(error))
   }
 
   render () {
