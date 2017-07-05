@@ -17,7 +17,3 @@ const Sidebar = () => {
 }
 
 export default Sidebar;
-
-
-// <Link to="/albums">Go to Albums</Link>
-// <Link to={`/albums/${someAlbumId}`}>Go to an Album</Link>
