@@ -17,7 +17,7 @@ export default class Main extends Component {
             <Sidebar />
           </div>
             <div className="col-xs-10">
-              <Route exact path="/" component={Albums} />
+              <Route exact path="/" component={StatefulAlbums} />
               <Route exact path="/albums" component={StatefulAlbums} />
               <Route path="/albums/:albumId" component={SingleAlbum} />
               <Route exact path="/artists" component={AllArtists} /> 

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import AllAlbums from './AllAlbums'
 
-export default class AllAlbums extends Component {
+export default class StatefulAlbums extends Component {
     constructor() {
         super()
         this.state = {

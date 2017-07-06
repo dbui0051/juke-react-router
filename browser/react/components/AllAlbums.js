@@ -6,12 +6,13 @@ export default class AllAlbums extends Component {
 
   render () {
     const albums = this.props.albums
-
+    console.log(albums)
     return (
       <div>
         <h3>Albums</h3>
         <div className="row">
         {
+          albums &&
           albums.map(album => (
             <div className="col-xs-4" key={ album.id }>
               <Link to={`/albums/${album.id}`} className="thumbnail" >
