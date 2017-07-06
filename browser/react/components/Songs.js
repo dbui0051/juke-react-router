@@ -5,7 +5,7 @@ const Songs = (props) => {
   const songs = props.songs;
 
   return (
-    <table className='table'>
+    <table className="table">
       <thead>
         <tr>
           <th></th>

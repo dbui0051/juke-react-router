@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box; }
 
+
 body {
   background: #222222;
   padding-bottom: 56px; }
@@ -60,3 +61,11 @@ footer {
 
 .album img {
   height: 300px; }
+
+.navactivea {
+  background-color: blue;
+}
+.navactiveb {
+  background-color: green;
+}
+

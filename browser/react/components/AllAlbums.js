@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 export default class AllAlbums extends Component {
 
   render () {
     const albums = this.props.albums
-    console.log(albums)
     return (
       <div>
         <h3>Albums</h3>

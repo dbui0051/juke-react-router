@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios'
 import Songs from './Songs'
 import AllAlbums from './AllAlbums'
+import { Route, Link, NavLink } from 'react-router-dom'
 var Promise = require('bluebird');
 
 
@@ -31,17 +32,24 @@ export default class SingleArtist extends Component {
             .catch(error => console.log(error))
     }
 
-    render() {
-        return (
+    render () {
+
+          const artist = this.state.artist
+          const albums = this.state.artistAlbums
+          const songs = this.state.artistSongs
+          const artistId = this.props.match.params.artistId;
+
+          return (
             <div>
-                <h3>{this.state.artist.name}</h3>
-                <h4>ALBUMS</h4>
-                <AllAlbums albums = {this.state.artistAlbums}/>
-                <h4>SONGS</h4>
-                <Songs songs={this.state.artistSongs} />
+              <h3>{ artist.name }</h3>
+              <ul className="nav nav-tabs">
+                <li><NavLink to={`/artists/${artistId}/albums`} activeClassName="navactivea">ALBUMS</NavLink></li>
+                <li><NavLink to={`/artists/${artistId}/songs`} activeClassName="navactiveb">SONGS</NavLink></li>
+              </ul>
+
+              <Route path={`/artists/${artistId}/albums`} render={() => <AllAlbums albums={albums} /> } />
+              <Route path={`/artists/${artistId}/songs`} render={() => <Songs songs={songs} /> } />
             </div>
-        );
-    }
+          );
+        }
 }
-
-
